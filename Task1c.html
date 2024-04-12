@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TASK-1C</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #correction {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #correction span {
+      color: red;
+    }
+
+    #correction em {
+      color: green;
+   }
+
+    mark#learning-text {
+      background-color: green;
+      cursor: pointer; /* Add cursor style to indicate interactivity */
+    }
+    mark{
+      background-color: red;
+    }
+                                        
+
+    .correction-overlay {
+      position: absolute;
+      top: 76mm;
+      left: 17cm;
+      display: none;
+      color: rgb(93, 218, 93);
+    }
+
+  
+  </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const correctionContainer = document.getElementById('correction');
+    const learningText = document.getElementById('learning-text');
+
+    // Create correction overlay element
+    const correctionOverlay = document.createElement('div');
+    correctionOverlay.className = 'correction-overlay';
+    correctionOverlay.innerHTML = '(correction)';
+    correctionContainer.appendChild(correctionOverlay);
+
+    // Add event listeners
+    learningText.addEventListener('mouseover', function () {
+      correctionOverlay.style.display = 'block';
+
+      // Create and append correction text span with "(Learn)"
+      const correctionSpan = document.createElement('span');
+      correctionSpan.innerHTML = '<mark>Learn</mark>';
+      correctionSpan.className = 'correction-text';
+      learningText.appendChild(correctionSpan);
+    });
+
+    learningText.addEventListener('mouseout', function () {
+      correctionOverlay.style.display = 'none';
+
+      // Remove correction text span on mouseout
+      const correctionSpan = document.querySelector('.correction-text');
+      if (correctionSpan) {
+        correctionSpan.remove();
+      }
+    });
+
+    learningText.addEventListener('click', function () {
+      alert('Correction: Learn');
+    });
+  });
+</script>
+
+
+</head>
+<body>
+
+  <div id="correction">
+    <!--<span>(Correction)</span>-->
+    <p><strong>"A happy life is one spent in <mark id="learning-text">learning</mark>, earning, and yearning"</strong></p>
+  </div>
+
+</body>
+</html>

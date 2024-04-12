@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Font Awesome CDN link -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+body {
+  background-color: rgb(48, 42, 42);
+  color: white;
+}
+
+.container-table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5cm;
+  width: 7cm;
+}
+
+.table-rounded {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.submenu {
+  display: none;
+  background-color: black !important;
+}
+
+.submenu-item {
+  padding-left: 30px;                                        
+  cursor: pointer;
+}
+
+.submenu-item,
+.submenu-item:focus {
+  color: blanchedalmond!important; /* Set submenu text color to green */
+  
+}
+  
+
+
+/* Update for container cells background color and text color */
+.table-rounded td {
+  background-color: burlywood;
+  color: black;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 container-table">
+        <!-- Adding 'table-rounded' class to the table -->
+        <table class="table table-dark table-rounded">
+          <tbody>
+            <!-- Profile row with Font Awesome icon -->
+            <tr class="clickable" onclick="toggleSubMenu('profile')">
+              <td><i class="fas fa-user-circle"></i> Profile</td>
+            </tr>
+            <!-- Submenu items -->
+            <tr class="submenu" id="profileSubmenu">
+              <td class="submenu-item" onclick="navigate('posts')">Posts</td>
+            </tr>
+            <tr class="submenu" id="profileSubmenu2">
+              <td class="submenu-item" onclick="navigate('pictures')">Picture</td>
+            </tr>
+            <!-- Messages -->
+            <tr class="clickable" onclick="toggleSubMenu('messages')">
+              <td><i class="fas fa-envelope"></i> Messages</td>
+            </tr>
+            <tr class="submenu" id="messagesSubmenu">
+              <td class="submenu-item" onclick="navigate('new')">New</td>
+            </tr>
+            <tr class="submenu" id="messagesSubmenu2">
+              <td class="submenu-item" onclick="navigate('spam')">Spam</td>
+            </tr>
+            <tr class="submenu" id="messagesSubmenu3">
+              <td class="submenu-item" onclick="navigate('sent')">Sent</td>
+            </tr>
+            <!-- Settings -->
+            <tr class="clickable" onclick="toggleSubMenu('settings')">
+              <td><i class="fas fa-cogs"></i> Settings</td>
+            </tr>
+            <tr class="submenu" id="settingsSubmenu">
+              <td class="submenu-item" onclick="navigate('password')">Password</td>
+            </tr>
+            <tr class="submenu" id="settingsSubmenu2">
+              <td class="submenu-item" onclick="navigate('language')">Language</td>
+            </tr>
+            <!-- Logout -->
+            <tr class="clickable" onclick="toggleSubMenu('logout')">
+              <td><i class="fas fa-sign-out-alt"></i> Logout</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+ <script>
+    function toggleSubMenu(submenuId) {
+      const submenus = document.querySelectorAll('.submenu');
+      submenus.forEach(submenu => {
+        submenu.style.display = 'none';
+      });
+
+      const submenu = document.getElementById(submenuId + 'Submenu');
+      if (submenu) {
+        submenu.style.display = 'table-row';
+      }
+      const submenu2 = document.getElementById(submenuId + 'Submenu2');
+      if (submenu2) {
+        submenu2.style.display = 'table-row';
+      }
+      const submenu3 = document.getElementById(submenuId + 'Submenu3');
+      if (submenu3) {
+        submenu3.style.display = 'table-row';
+      }
+      // ... other submenu handling
+    }
+
+    function navigate(option) {
+      alert(`Selected option: ${option}`);
+    }
+  </script> 
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TASK-1D</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0; /* Set a background color for the entire page */
+    }
+    .curved-box {
+      width: 300px; /* Adjust the width as needed */
+      height: auto; /* Adjust the height as needed */
+      background-color: #3b5f8f; /* Grey color */
+      border-radius: 10px; /* Border radius for curved edges */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add a subtle shadow */
+      padding: 20px; /* Add padding for better aesthetics */
+      
+    }
+
+    /* Style for the input box */
+    .input-box-container {
+      position: relative;
+    }
+
+    .input-box {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px; /* Add space between input fields */
+      border: none;
+      border-radius: 5px;
+      background-color: grey; /* Blue color for the input box */
+    }
+    
+
+    .input-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      pointer-events: none;
+      transition: top 0.3s ease, font-size 0.3s ease;
+    }
+
+    .input-box:focus + .input-label, .input-box:not(:placeholder-shown) + .input-label {
+      top: -10px;
+      font-size: 12px;
+    }
+
+    .input-box:focus + .input-label, 
+    .input-box:not(:placeholder-shown) + .input-label {
+      color: red; /* Change the color as needed */
+      background-color: black;
+      border-radius: 1cm;
+    }
+  
+    /* Style for the submit button container */
+    .btn.btn-primary {
+      width: 100%;
+      margin-top: 15px; /* Add space between submit button and input fields */
+    }
+  </style>
+</head>
+<body style="background-color: black;">
+
+  <div class="curved-box">
+    <!-- Content inside the box goes here -->
+    <h2 style="color: white">WELCOME</h2>
+    <p style="color:whitesmoke">Let's create your account!</p>
+
+    <!-- Input box for the first name -->
+    <div class="input-box-container">
+      <input type="text" class="input-box" id="firstName" placeholder="First Name" required>
+      <label for="firstName" class="input-label">First Name</label>
+    </div>
+
+    <!-- Input box for the last name -->
+    <div class="input-box-container">
+      <input type="text" class="input-box" id="lastName" placeholder="Last Name" required>
+      <label for="lastName" class="input-label">Last Name</label>
+    </div>
+
+    <!-- Input box for the Email -->
+    <div class="input-box-container">
+      <input type="text" class="input-box" id="Email" placeholder="Email" required>
+      <label for="Email" class="input-label">Email</label>
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+
+  <script>
+    // JavaScript to handle input focus
+    document.getElementById('').addEventListener('focus', function() {
+      this.placeholder = '';
+    });
+
+    document.getElementById('firstName').addEventListener('blur', function() {
+      if (!this.value) {
+        this.placeholder = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
